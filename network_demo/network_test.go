@@ -8,7 +8,7 @@
 package network_demo
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http/httptest"
 	"testing"
 )
@@ -17,7 +17,7 @@ func TestHelloHandler(t *testing.T) {
 	req := httptest.NewRequest("GET", "localhost://example.com/hello", nil)
 	w := httptest.NewRecorder()
 	HelloHandler(w, req)
-	bytes, _ := ioutil.ReadAll(w.Result().Body)
+	bytes, _ := io.ReadAll(w.Result().Body)
 	if string(bytes) != "hello world" {
 		t.Fatal("expected hello world, but got", string(bytes))
 	}

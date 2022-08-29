@@ -7,10 +7,19 @@
  */
 package main
 
+import "fmt"
+
 func Add(a, b int) int {
 	return a + b
 }
 
 func Mul(a, b int) int {
 	return a * b
+}
+
+func main() {
+	addResult := Add(1, 3)
+	mulResult := Mul(3, 2)
+	fmt.Println(addResult, mulResult)
+
 }
